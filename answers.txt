@@ -1,0 +1,17 @@
+sort1 uses: bubble sort
+
+How do you know?: O(bubble sort) is n^2, so for random/reversed lists this shouldn't be the one with the consistently
+shorter times, and it isn't. However, omega is n for a list that's already sorted. So only in the case of already sorted lists should this
+one have the shortest runtimes of the three, and indeed it does.
+
+sort2 uses: merge sort
+
+How do you know?: O(merge sort) is log(n). So overall, this sort should have the shorter complete times for random and
+reversed lists, compared with bubble and selection sorts. Which it does. It does not have the shortest time for already sorted lists, however. 
+Omega of merge sort is log(n). But for a sorted list, it is omega "n" for bubble sort, so bubble sort wins.
+
+sort3 uses: selection sort
+
+How do you know?: Theta n^2. This algorithm was not the fastest whether you presented reversed, sorted, or random
+numbers. It often behaved similarly to bubble sort, however the big difference was seen on an already sorted
+list where bubble sort had a runtime of n. 
