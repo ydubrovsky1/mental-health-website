@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Buffy The Vampire Slayer Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+            function Evaluate(event)
+            {
+                var name = event.srcElement;
+                if (name.innerHTML == "Joyce")
+                {
+                    event.srcElement.style.backgroundColor="Green";
+                    document.querySelector('#feedback1').innerHTML = "Correct";
+                }
+                else
+                {
+                    event.srcElement.style.backgroundColor="Red";
+                    document.querySelector('#feedback1').innerHTML = "Incorrect";
+                }
+            }
+            
+            function greet()
+            {
+                var response = document.querySelector('#answer').value;
+                if(response == "Angel")
+                {
+                    document.getElementById('whatever').style.backgroundColor = "Green";
+                    document.querySelector('#feedback2').innerHTML = "Correct";
+                }
+                else
+                {
+                    document.getElementById('whatever').style.backgroundColor = "Red";
+                    document.querySelector('#feedback2').innerHTML = "Incorrect";
+                }
+            }
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Buffy The Vampire Slayer Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the name of Buffy's mom?</h3>
+                    <button onclick = "Evaluate(event);">Joyce</button>
+                    <button onclick = "Evaluate(event)">Willow</button>
+                    <button onclick = "Evaluate(event)">Dawn</button>
+                    <button onclick = "Evaluate(event)">Anya</button>
+                    
+                    <p id = "feedback1"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>Who is the Vampire also known as Angelus?</h3>
+                <form onsubmit = "greet(); return false;" id = "whatever">
+                    <input id = "answer" type = "text">
+                    <input type ="Submit">
+                    
+                    <p id = "feedback2"></p>
+                </form>
+
+            </div>
+
+        </div>
+    </body>
+</html>
