@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+      Bought:
+{% endblock %}
+
+{% block main %}
+    <h1>Bought:</h1>
+    
+    
+        <table style="width:100%">
+          <tr>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Your Funds Remaining</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>{{symbol}}</td>
+            <td>{{shares}}</td>
+            <td>{{price | usd }}</td>
+            <td>{{total | usd }}</td>
+            <td>{{funds | usd }}</td>
+          </tr>
+        </table>
+{% endblock %}

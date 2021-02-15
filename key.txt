@@ -1,0 +1,11 @@
+export API_KEY=pk_c5d635beb9be4ac6a5149a291adea9b2
+
+   #check if user already has this stock, if so add to the total, if not add a new entry
+            rows = db.execute("SELECT * FROM portfolio WHERE username = ? AND symbol = ?", username, symbol)
+    if len(rows) != 1:
+                db.execute("INSERT INTO portfolio (username, symbol, shares, price, total, funds) VALUES (?,?,?, ?, ?, ?)", username, symbol, shares, price, total, funds)
+            else: 
+                portfolio = db.execute("SELECT shares, total FROM portfolio WHERE username=? AND symbol =?", username, symbol)
+                shares1 = int(shares) + portfolio[0]["shares"]
+                total1 = total + float(portfolio[0]["total"])
+                db.execute("UPDATE portfolio SET shares = ?, total = ? WHERE symbol = ?", shares1, total1, symbol)

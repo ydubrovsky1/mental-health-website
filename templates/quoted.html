@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote:
+{% endblock %}
+
+{% block main %}
+    <h1>Quote:</h1>
+        <table style="width:100%">
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Symbol</th>
+          </tr>
+          <tr>
+            <td>{{result.name}}</td>
+            <td>{{result.price | usd }}</td>
+            <td>{{result.symbol}}</td>
+          </tr>
+        </table>
+{% endblock %}
