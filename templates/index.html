@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+      Index
+{% endblock %}
+
+{% block main %}
+    <h1>Your Portfolio</h1>
+    
+    
+        <table style="width:80%">
+          <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Funds</th>
+                <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              
+            {% for id in portfolio1 %}
+            <tr>
+                <td>{{id["symbol"]}}</td>
+                <td>{{id["SUM(shares)"]}}</td>
+                <td>{{id["price"] | usd  }}</td>
+                <td>{{id["SUM(total)"] | usd }}</td>
+                <td></td>
+            </tr>
+              {% endfor %}
+            {% for id in users %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{id.cash | usd }}</td>
+            </tr>
+                {% endfor %}
+           </tbody>
+        </table>
+        <h2>Total Cash + Stock Values:  {{total | usd }} </h2>
+        
+{% endblock %}
