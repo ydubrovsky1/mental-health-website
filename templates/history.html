@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+      Index
+{% endblock %}
+
+{% block main %}
+    <h1>Transaction History</h1>
+    
+    
+        <table style="width:80%">
+          <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Date</th>
+                <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              
+            {% for id in portfolio %}
+            <tr>
+                <td>{{id.symbol}}</td>
+                <td>{{id.shares}}</td>
+                <td>{{id.price | usd }}</td>
+                <td>{{id.total | usd }}</td>
+                <td>{{id.Date}}</td>
+            </tr>
+              {% endfor %}
+           </tbody>
+        </table>
+        
+{% endblock %}

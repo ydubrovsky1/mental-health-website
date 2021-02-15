@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Get Quote:
+{% endblock %}
+
+{% block main %}
+<h1> Sell A Stock: </h1>
+    <form action="/sell" method="post">
+        <div class="form-group">
+            <label for = "symbol">Choose A Stock:</label>
+            <select id = "symbol" name = "symbol">
+                {%for row in portfolio %}
+                <option value="{{row.symbol}}">{{row.symbol}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <input class="form-control" name="shares" placeholder="shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell Shares</button>
+    </form>
+{% endblock %}
