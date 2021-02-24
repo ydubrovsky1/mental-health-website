@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Quotes
+{% endblock %}
+
+{% block main %}
+    <!--script for up/downvote-->
+    <script>
+        function upvote(rowid)
+        {
+            //Update the Button Color
+            document.getElementById(rowid +'up').style.backgroundColor = "Green";
+            document.getElementById(rowid +'down').style.backgroundColor = "White";
+            
+            $(document).ready(function()
+            {
+                $.ajax({
+                        type: "POST",
+                        url: "/upvote",
+                        data: {'rowid':rowid}, 
+                        success: function(rating){$("#"+rowid+"rating").text(rating)}
+                });
+            });
+
+            
+        }
+        function downvote(rowid)
+        {
+            //Update the Button Color
+            document.getElementById(rowid +'down').style.backgroundColor = "Red";
+            document.getElementById(rowid +'up').style.backgroundColor = "White";
+            
+              $(document).ready(function()
+            {
+                $.ajax({
+                        type: "POST",
+                        url: "/downvote",
+                        data: {'rowid':rowid}, 
+                        success: function(rating){$("#"+rowid+"rating").text(rating)}
+                });
+            });
+        }
+    </script>
+    
+    <!--table of quotes-->
+    <div>
+    <h2>Inspiration:</h2>
+    <table id="quotes_table">
+          <thead>
+              <tr>
+                <th>Quote:</th>
+                <th>Rating:</th>
+                <th></th>
+              </tr>
+          </thead>
+          <tbody>
+            {% for row in quotes %}
+            <tr>
+                <td>{{row["quote"]}}</td>
+                <td id="{{row['id']}}rating">{{row["rating"]}}</td>
+                <td>
+                    <button onclick = "upvote({{row['id']}});" id = "{{row['id']}}up">Upvote</button>
+                    <button onclick = "downvote({{row['id']}});" id = "{{row['id']}}down">Downvote</button>
+                </td>
+            </tr>
+              {% endfor %}
+            </tbody>
+        </div>    
+        <!--add your own quote-->   
+        <div class = "addquote">
+                <form action="/quotes" method="POST">
+                    <div class="form-group">
+                    <input type="text" name="quote" class="form-control" id="post-quote" placeholder="Type quote here.">
+                    </div>
+                    <div class="submit-button">
+                        <button type="submit" class="btn-primary">Post Your Quote</button>
+                    </div>
+                </form>
+            </div>
+        
+{% endblock %}

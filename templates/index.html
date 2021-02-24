@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block main %}
+    <h1></h1>
+    
+    <!--scripts-->
+    <script>
+    //script for background
+        var Background = '{{Background}}'
+        if (Background =="white")
+            document.body.style.backgroundColor = "white";
+        else
+            document.body.style.backgroundImage = "url('" + Background +"')";
+            document.body.style.backgroundPosition = "top center";
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundSize = "cover";
+    </script>
+    
+     <script>
+    //script for font color
+        var Font = '{{Font}}'
+        document.body.style.color = Font
+    </script>
+    
+    <script>
+        
+        //script for quote updates
+        function newquote(quotes, size)
+        {
+            var number = Math.floor((Math.random() * size));
+            document.getElementById('quoteparagraph').innerHTML = quotes[number];
+        }
+        
+        
+                //function for meditation choice
+                function loadDoc(topic)
+                 {
+                    //nothing is chosen
+                    if(topic =="")
+                        return;
+        
+                //create AJAX object    
+                var xhttp = new XMLHttpRequest();
+    
+                //function waits for page to be loaded
+                xhttp.onreadystatechange = function()
+                {
+                if (xhttp.readyState == 4 && xhttp.status == 200)
+                {
+                    $('#demo').html(xhttp.responseText);
+                }
+                };
+        
+                xhttp.open("GET", "/"+topic, true);
+                xhttp.send();
+            }
+    </script>    
+    
+    
+    <!--quote-->
+    <div id = "quote" >
+        <h2>daily quote:</h2>
+        <p id = "quoteparagraph">{{quote}}</p>
+        <button type="button" onclick= "newquote({{quotes}}, {{size}});" id="quotebutton">Get Random Quote</button>
+    </div>
+    
+    <!--video and playlist-->
+    <div class="container">
+    <div class="row-sm">
+    <div class="col-sm"> 
+        <!--video-->
+        <h2></h2>
+        <iframe width="100%" height="350px" src= {{Youtube}} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <a href="/customize">Change Youtube Playlist</a>
+    </div>
+        
+    <div class="col-sm">
+        <!--Spotify playlist-->
+        <h2></h2>
+        <iframe src={{Spotify}} width="100%" height="350px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <a href="/customize">Change Spotify Playlist</a>
+     </div>   
+     </div>
+     
+    <div class="row-m">
+    <div class="col-m">     
+        
+             <!--meditations-->
+            
+            <h2>Select A Meditation</h2>
+                <form>
+                <select name = "medi" onchange="loadDoc(this.value);">
+                <option value="">Select a Topic</option>
+                <option value="Basics">Beginning Meditation</option>
+                <option value="Bodyscan">Body Scan</option>
+                <option value="Depression">Meditation For Depression</option>
+                </select>
+                </form>
+    </div>
+    </div>
+    
+    <div class="row-n">
+    <div class="col-n">     
+            <div id ="demo" class="container">
+                ***
+            </div>
+    </div>
+    </div>
+    </div>
+            
+
+{% endblock %}
