@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block main %}
+    <h2>Select A Meditation</h2>
+    <div>
+    <form>
+        <select name = "medi" onchange="loadDoc(this.value);">
+            <option value="">Select a Topic</option>
+            <option value="Basics">Beginning Meditation</option>
+            <option value="Bodyscan">Body Scan</option>
+            <option value="Depression">Meditation For Depression</option>
+        </select>
+    </form>
+    </div>
+<div id ="demo">
+    ***
+</div>
+
+<script>
+function loadDoc(topic)
+{
+    //nothing is chosen
+    if(topic =="")
+        return;
+        
+    //create AJAX object    
+    var xhttp = new XMLHttpRequest();
+    
+    //function waits for page to be loaded
+    xhttp.onreadystatechange = function()
+    {
+        if (xhttp.readyState == 4 && xhttp.status == 200)
+        {
+            $('#demo').html(xhttp.responseText);
+        }
+    };
+    
+    xhttp.open("GET", "/"+topic, true);
+    xhttp.send();
+}
+
+
+</script>
+
+{% endblock %}

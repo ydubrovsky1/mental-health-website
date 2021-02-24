@@ -1,0 +1,107 @@
+/*Yana's Styles for Oasis*/
+
+h1
+{
+  font-size: 6em;
+  text-shadow: 3px 3px black;
+}
+
+body 
+{
+    background-color: white;
+    font-family: "Junge", serif;
+    font-size: 100%;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
+}
+
+.col-sm
+{
+  float: left;
+  width: 50%;
+  padding: 15px;
+}
+
+.row-sm
+{
+  height: 450px;
+}
+
+#quotes_table
+{
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 70%;
+  display: block;
+  position: static;
+  margin: auto;
+}
+
+#quotes_table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+#quotes_table tr:hover {background-color: #ddd;}
+
+#quotes_table th
+{
+  background-color: #87CEE1;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  height: 100px;
+  text-align: center;
+  color: white;
+  font-size: 2em;
+}
+
+#login
+{
+  display: block;
+  position: static;
+  height: 1000px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+
+.form-group
+{
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 30%;
+  margin: auto;
+  background-color: #f8f8f8;
+  border-style: solid;
+  border-width: 5px;
+}
+
+
+.placeholder
+{
+  height: 300px;
+  width: 200000px;
+}
+
+#loginform
+{
+  max-width: 200000px;
+  background-image: url('https://images.creativemarket.com/0.1.0/ps/5836588/910/607/m2/fpnw/wm0/dreamvacation_screenshot-.jpg?1549461453&s=9634cc5b1c6ff94d44f50aa7d60f7e79');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+
+}
+
+#quote
+{
+  width: 40%;
+  display: block;
+  position: static;
+  margin: auto;
+}
