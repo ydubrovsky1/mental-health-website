@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Customize
+{% endblock %}
+
+{% block main %}
+    <article id = customizeform>
+    <div id="customize">
+    <form action="/customize" method="post">
+        <div class="form-group">
+            <h2>Choose A Youtube Playlist</h2>
+            <input autocomplete="off" autofocus class="form-control" name="Playlist" placeholder="youtube.com/playlist?list=myplaylist" type="text">
+        </div>
+        <div class="form-group">
+            <h2>Choose A Spotify Playlist</h2>
+            <input autocomplete="off" autofocus class="form-control" name="Spotify" placeholder="https://open.spotify.com/embed/playlist/37i9dQZF1DX84kJlLdo9vT" type="text">
+        </div>
+        <div class="form-group">
+            <h2>Choose A Background</h2>
+            <p>Search Online For An Image. Right Click On Image and Click Open Image In New Tab. Copy the Image URL From Address Bar. For Example, https://wallpapercave.com/wp/yKBmQ7B.jpg</p>
+            <input autocomplete="off" autofocus class="form-control" name="Background" placeholder="https://wallpapercave.com/wp/yKBmQ7B.jpg" type="text">
+        </div>
+        <div class="form-group">
+            <h2>Choose A Font Color</h2>
+            <input type="radio" id="black" name="Color" value="black">
+                <label for="Black">Black</label>
+            <input type="radio" id="white" name="Color" value="white">
+                <label for="white">White</label>
+            <input type="radio" id="Blue" name="Color" value="blue">
+                <label for="blue">Blue</label>
+        </div>
+        <button class="btn btn-primary" type="submit">Update</button>
+    </form>
+    <h1>Oasis</h1>
+    </div>
+    </article>
+{% endblock %}

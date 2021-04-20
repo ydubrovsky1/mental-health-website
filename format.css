@@ -1,0 +1,76 @@
+#links {
+  text-align: right;
+}
+
+a {
+  padding: 2px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #609;
+}
+
+img {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-group-a > label {
+  text-align: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
+
+.form-group-a > input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+body, input, button, .button {
+  font-size: 14px;
+  font-family: arial,sans-serif;
+}
+
+input {
+  width: 50%;
+  height: 40px;
+  border-radius: 8px;
+  border: .5px solid lightgrey;
+  margin-bottom: 20px;
+}
+
+#adv_search_btn {
+  background-color: blue;
+  color: white;
+}
+
+.button {
+  margin-left: 3px;
+  margin-right: 3px;
+  width: 150px;
+  height: 40px;
+  background-color: #eef1f1;
+  margin-left: 3px;
+  margin-right: 3px;
+  border: .5px solid lightgrey;
+  border-radius: 8px;
+}
+/*# sourceMappingURL=format.css.map */
