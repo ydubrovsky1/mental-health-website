@@ -1,0 +1,102 @@
+cs50
+Flask
+Flask-Session
+requests
+
+
+
+    <div class = "addquote">
+                <form action="/quotes" method="POST">
+                    <div class="form-group">
+                    <input type="text" name="quote" class="form-control" id="post-quote" placeholder="Type quote here.">
+                    </div>
+                    <div class="submit-button">
+                        <button type="submit" class="btn-primary">Post Your Quote</button>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBq2Ttz.img?h=416&w=799&m=6&q=60&u=t&o=f&l=f&x=800&y=1225
+
+
+    <script>
+        function vote(event)
+        {
+            var response = event.srcElement;
+            if (response.innerHTML =="+")
+            {
+                alert("+");
+            }
+            else if (response.innerHTML =="-")
+            {
+                alert("-");
+            }
+            
+        }
+    </script>
+    
+    
+    
+        if request.method == "POST":
+        
+        #TO DO--update database based on upvote
+        if request.form.get("upvote")
+        rating = int(db.execute("SELECT rating FROM quotes WHERE quote=?", quote)[0]["rating"]) + 1
+        db.execute("UPDATE quotes SET rating = ?", rating)
+    
+    else:
+    
+    
+    
+    
+    _______________________________________________
+    
+    
+                {% extends "layout.html" %}
+
+{% block title %}
+Quotes
+{% endblock %}
+
+{% block main %}
+<h1>Select Meditation</h1>
+
+<p id="demo">Let AJAX change this text</p>
+<button type="button" onclick="loadDoc()">Change Content</button>
+
+<!--script-->
+<script>
+    function loadDoc(){
+        //create new AJAX object
+        var ajax = new XMLHttpRequest();
+        
+        //when the page is loaded have a callback function activate
+        ajax.onreadystatechage = function(){
+            if(this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML = this.responseText;
+            }
+        };
+        ajax.open("GET", "meditation.txt", true);
+        ajax.send();
+        
+</script>
+{% endblock %}
+            
+            
+            
